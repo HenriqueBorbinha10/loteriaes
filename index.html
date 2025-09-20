@@ -241,7 +241,7 @@
         Genera más juegos
       </button>
       <button class="bg-pink-custom hover:bg-pink-600 text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
-        onclick="window.open('https://www.appgelatina.online/quizrobot','_blank')">
+        onclick="window.open('https://www.google.com','_blank')">
         Acelere las ganancias
       </button>
       <button class="bg-[#222] hover:bg-[#333] text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
@@ -330,26 +330,26 @@
 
   function startBalance01() {
     clearInterval(interval1);
-    document.getElementById('balance01').textContent = `GANANCIAS: ${balance1.toFixed(2)}`;
+    document.getElementById('balance01').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     interval1 = setInterval(() => {
       balance1 *= 1.03;
-      document.getElementById('balance01').textContent = `GANANCIAS: ${balance1.toFixed(2)}`;
+      document.getElementById('balance01').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     }, stepTime);
   }
   function startBalance02() {
     clearInterval(interval2);
-    document.getElementById('balance02').textContent = `GANANCIAS: ${balance2.toFixed(2)}`;
+    document.getElementById('balance02').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     interval2 = setInterval(() => {
       balance2 *= 1.03;
-      document.getElementById('balance02').textContent = `GANANCIAS: ${balance2.toFixed(2)}`;
+      document.getElementById('balance02').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     }, stepTime);
   }
   function startBalance03() {
     clearInterval(interval3);
-    document.getElementById('balance03').textContent = `GANANCIAS: ${balance3.toFixed(2)}`;
+    document.getElementById('balance03').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     interval3 = setInterval(() => {
       balance3 *= 1.03;
-      document.getElementById('balance03').textContent = `GANANCIAS: ${balance3.toFixed(2)}`;
+      document.getElementById('balance03').textContent = `GANANCIAS: ${Math.floor(balance1)}`;
     }, stepTime);
   }
   // Chama o saldo nas etapas corretas
