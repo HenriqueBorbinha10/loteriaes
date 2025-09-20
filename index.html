@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MEGALOTO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #000; color: #fff; font-family: Arial, sans-serif; }
+    .bg-pink-custom { background: #f43f5e; }
+    .option-btn {
+      padding: 0.32rem 0.5rem !important;
+      font-size: 0.91rem !important;
+      min-width: 0;
+      border-radius: 0.5rem !important;
+    }
+    .option-btn.selected {
+      background: #f43f5e !important;
+      color: #fff !important;
+    }
+    .count-btn.selected {
+      background: #2bfcf8 !important;
+      color: #18181b !important;
+    }
+    .caixa-saldo {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background: #232326;
+      border-radius: 0.75rem;
+      padding: 0.9rem 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-sizing: border-box;
+      max-width: 100vw;
+      gap: 1.5rem;
+    }
+    .saldo-texto {
+      font-size: 0.75rem;
+      font-weight: 500;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      flex:1 1 0;
+    }
+    .balance-box-small {
+      background: #f43f5e;
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 0.3rem;
+      min-width: 100px;
+      text-align: center;
+      letter-spacing: 0.8px;
+      box-shadow: 0 2px 8px 0 #f43f5e22;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 540px) {
+      .caixa-saldo {
+        padding: 0.75rem 0.2rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        gap: 0.6rem;
+      }
+      .saldo-texto {
+        font-size: 0.88rem;
+      }
+      .balance-box-small {
+        font-size: 0.8rem;
+        min-width: 100px;
+        padding: 0.32rem 0.5rem;
+      }
+    }
+    .video-label-pink {
+      background: #f43f5e;
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.25rem 0.25rem;
+      margin-left: 0;
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.2px;
+      display: inline-block;
+      text-align: center;
+      min-width: 90px;
+      max-width: 95%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .video-box { min-height: 56px; }
+    .processed-label { color: #34d399; font-weight: 600; font-size: 0.87rem; margin-left: 2px; }
+    .processed-bar-small {
+      background: #f43f5e;
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.18rem 0.9rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+      display: inline-block;
+      letter-spacing: 0.1px;
+      min-width: 78px;
+      max-width: 180px;
+      text-align: center;
+    }
+    .video-type.comment-replies {
+      font-size: 0.85rem !important;
+      padding-left: 0.3rem !important;
+      padding-right: 0.3rem !important;
+      letter-spacing: -0.5px;
+    }
+    .btn-bar { display: flex; flex-direction: row; gap: 0.5rem; width: 100%; justify-content: center; }
+    .btn-bar > button { flex: 1 1 0; font-size: 1rem; padding-left: 0.5rem; padding-right: 0.5rem; white-space: nowrap; }
+    @media (max-width: 540px) {
+      .btn-bar { flex-direction: column !important; gap: 0.5rem !important; }
+      .btn-bar > button { width: 100%; }
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+
+<!-- ETAPA 01 -->
+<div id="etapa01" class="min-h-screen w-full flex items-center justify-center px-2 sm:px-6 bg-black">
+  <div class="w-full max-w-md sm:max-w-lg flex flex-col items-center justify-center px-2 sm:px-4 py-6 space-y-4 bg-black rounded-xl shadow-lg">
+    <div class="caixa-saldo" id="caixaSaldo01">
+      <span class="saldo-texto">
+        Congratulations on embracing this new millionaire life.
+      </span>
+      <span id="balance01" class="balance-box-small">WINNERS: 123</span>
+    </div>
+    <img src="imagens/logo.png" alt="Logo"
+         class="w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto block"
+         style="margin-top: 0.2px; margin-bottom: 0.2px;" />
+    <h2 class="text-center text-2xl font-semibold mt-2 w-full">🎥 NUMBER PANEL</h2>
+    <div class="bg-[#18181b] rounded-xl p-4 space-y-2 mt-4 w-full">
+      <div id="toggle-handle" class="flex justify-between items-center cursor-pointer">
+        <label class="font-bold text-lg">Enter your name</label><span>﹀</span>
+      </div>
+      <input id="handle" type="text" placeholder="Ex: Michael Johnson" class="w-full bg-[#1f1f1f] p-3 rounded-md focus:outline-none hidden" />
+    </div>
+    <div class="bg-[#18181b] rounded-xl p-4 space-y-4 mt-4 w-full">
+      <div id="toggle-types" class="flex justify-between items-center cursor-pointer">
+        <label class="font-bold text-lg">Select the game day</label><span>﹀</span>
+      </div>
+      <div id="types-wrapper" class="rounded-lg p-3 space-y-3 hidden">
+        <div id="types-options" class="grid grid-cols-2 gap-2">
+          <button class="video-type option-btn bg-[#1a1a1a]">Monday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Tuesday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Wednesday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Thursday</button>
+          <button class="video-type option-btn comment-replies bg-[#1a1a1a]" style="grid-column: span 1 / span 1;">Friday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Saturday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Sunday</button>
+        </div>
+        <p id="video-count" class="text-gray-400 text-sm hidden">Selected: 0</p>
+      </div>
+    </div>
+    <div class="bg-[#18181b] rounded-xl p-4 space-y-4 mt-4 w-full">
+      <div id="toggle-count" class="flex justify-between items-center cursor-pointer">
+        <label class="font-bold text-lg">How many games do you want to play</label><span>﹀</span>
+      </div>
+      <div id="count-wrapper" class="rounded-lg p-3 space-y-3 hidden">
+        <div id="count-options" class="grid grid-cols-5 gap-2">
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">1</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">2</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">3</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">4</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">5</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">6</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">7</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">8</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">9</button>
+          <button class="video-count option-btn count-btn bg-[#1a1a1a]">10</button>
+        </div>
+        <p id="count-result" class="text-gray-400 text-sm hidden">Selected: 0</p>
+      </div>
+    </div>
+    <button id="continue" disabled class="w-full py-3 bg-gray-800 text-gray-400 font-bold rounded-xl mt-6">CONTINUE</button>
+    <p id="info" class="text-center text-sm text-gray-400 mt-2 mb-2">
+      Enter your name, select the days of the week, and choose how many games you want to play.
+    </p>
+  </div>
+</div>
+
+<!-- ETAPA 02 -->
+<div id="etapa02" class="hidden min-h-screen w-full flex items-center justify-center px-2 sm:px-6 bg-black">
+  <div class="w-full max-w-md sm:max-w-lg px-2 py-8 flex flex-col items-center justify-center text-center bg-black rounded-xl shadow-lg">
+    <div class="caixa-saldo" id="caixaSaldo02">
+      <span class="saldo-texto text-left">
+        We have identified your choices, now let's generate your numbers.
+      </span>
+      <span id="balance02" class="balance-box-small">WINNERS: 154</span>
+    </div>
+    <h2 class="text-2xl font-semibold mb-5">🌀 Generating games...</h2>
+    <video src="imagens/vdeottkpulse.mp4" autoplay muted loop playsinline class="mx-auto mb-4 w-64 sm:w-96 rounded-lg"></video>
+    <p id="phrase-wait" class="mb-3">⏳ Please wait, generating games...</p>
+    <div class="progress-bar mb-2" style="width:100%;height:8px;background:#1a1a1a;border-radius:10px;overflow:hidden;">
+      <div id="progress" class="progress" style="width:0%;height:100%;background:linear-gradient(90deg,#ff5e62,#00bfff);border-radius:10px;transition:width 0.5s ease-in-out;"></div>
+    </div>
+    <div class="w-full flex justify-between mt-2 text-xs sm:text-base mb-2">
+      <span id="processando">Processing...</span>
+      <span id="percentage">0%</span>
+    </div>
+    <p id="phrase1" class="sub-text hidden text-xs mb-2">📊 Analyzing your choices...</p>
+    <p id="phrase2" class="sub-text hidden text-xs mb-2">🤖 Generating numbers...</p>
+    <p id="phrase3" class="sub-text hidden text-xs mb-2">✨ Finalizing combinations...</p>
+  </div>
+</div>
+
+<!-- ETAPA 03 -->
+<div id="etapa03" class="hidden min-h-screen flex flex-col items-center justify-start py-10 px-2 bg-black text-white">
+ <main class="w-full max-w-2xl mx-auto flex flex-col items-center">
+    <div class="caixa-saldo" id="caixaSaldo03">
+      <span class="saldo-texto">
+        Your games have been successfully generated, get ready.
+      </span>
+      <span id="balance03" class="balance-box-small">WINNERS: 203</span>
+    </div>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-0 text-center">GAMES GENERATED</h1>
+    <p id="subtitle" class="text-gray-300 text-base sm:text-lg mb-0 text-center mt-3">
+      Your combinations have been successfully generated <span id="selectedTypeText" class="font-semibold"> 💸</span>
+    </p>
+    <div id="videos-container" class="w-full flex flex-col gap-4 mb-8 mt-6"></div>
+    <div class="btn-bar mt-4">
+      <button class="border border-cyan-400 hover:bg-cyan-900 hover:bg-opacity-30 text-cyan-300 font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
+        onclick="generateMoreVideos()">
+        <svg class="w-4 h-4 mr-1 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A9 9 0 106.62 6.623"/>
+        </svg>
+        Generate more videos
+      </button>
+      <button class="bg-pink-custom hover:bg-pink-600 text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
+        onclick="window.open('https://www.appgelatina.online/quizrobot','_blank')">
+        Accelerate winnings
+      </button>
+      <button class="bg-[#222] hover:bg-[#333] text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
+        onclick="voltarParaEtapa01()">
+        Back to configuration
+      </button>
+    </div>
+  </main>
+</div>
+
+<script>
+  // ETAPA 1
+  const handleInput = document.getElementById("handle");
+  const typeButtons = document.querySelectorAll(".video-type");
+  const continueBtn = document.getElementById("continue");
+  const infoText = document.getElementById("info");
+  const toggleHandle = document.getElementById("toggle-handle");
+  const toggleTypes = document.getElementById("toggle-types");
+  const toggleCount = document.getElementById("toggle-count");
+  const typesWrapper = document.getElementById("types-wrapper");
+  const countWrapper = document.getElementById("count-wrapper");
+  const videoCountText = document.getElementById("video-count");
+  const countResult = document.getElementById("count-result");
+  let selectedTypes = new Set();
+  let selectedCount = null;
+
+  toggleHandle.addEventListener("click", () => handleInput.classList.toggle("hidden"));
+  toggleTypes.addEventListener("click", () => {
+    typesWrapper.classList.toggle("hidden");
+    videoCountText.classList.toggle("hidden");
+  });
+  toggleCount.addEventListener("click", () => {
+    countWrapper.classList.toggle("hidden");
+    countResult.classList.toggle("hidden");
+  });
+
+  typeButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.textContent.trim();
+      btn.classList.toggle("selected");
+      if (selectedTypes.has(value)) {
+        selectedTypes.delete(value);
+      } else {
+        selectedTypes.add(value);
+      }
+      videoCountText.textContent = `Selected: ${selectedTypes.size}`;
+      validate();
+    });
+  });
+
+  document.getElementById("count-options").addEventListener("click", event => {
+    const btn = event.target.closest(".video-count");
+    if (!btn) return;
+    selectedCount = parseInt(btn.textContent.trim());
+    document.querySelectorAll(".video-count").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    countResult.textContent = `Selected: ${selectedCount}`;
+    validate();
+  });
+
+  handleInput.addEventListener("input", validate);
+
+  function validate() {
+    const filled = handleInput.value.trim() !== "" && selectedTypes.size > 0 && selectedCount !== null;
+    continueBtn.disabled = !filled;
+    infoText.classList.toggle("hidden", filled);
+    continueBtn.className = filled
+      ? "w-full py-3 bg-pink-custom text-white font-bold rounded-xl mt-6"
+      : "w-full py-3 bg-gray-800 text-gray-400 font-bold rounded-xl mt-6";
+  }
+
+  continueBtn.addEventListener("click", () => {
+    localStorage.setItem("tiktokHandle", handleInput.value.trim());
+    localStorage.setItem("videoTypes", JSON.stringify([...selectedTypes]));
+    localStorage.setItem("videosPerDay", selectedCount);
+    document.getElementById("etapa01").classList.add("hidden");
+    mostrarEtapa02();
+  });
+
+  // SALDO DINÂMICO (em todas etapas)
+  let balance1 = 123;
+  let balance2 = 154;
+  let balance3 = 203;
+  let interval1, interval2, interval3;
+  let stepTime = 5500;
+
+  function startBalance01() {
+    clearInterval(interval1);
+    document.getElementById('balance01').textContent = `WINNERS: ${balance1.toFixed(2)}`;
+    interval1 = setInterval(() => {
+      balance1 *= 1.03;
+      document.getElementById('balance01').textContent = `WINNERS: ${balance1.toFixed(2)}`;
+    }, stepTime);
+  }
+  function startBalance02() {
+    clearInterval(interval2);
+    document.getElementById('balance02').textContent = `WINNERS: ${balance2.toFixed(2)}`;
+    interval2 = setInterval(() => {
+      balance2 *= 1.03;
+      document.getElementById('balance02').textContent = `WINNERS: ${balance2.toFixed(2)}`;
+    }, stepTime);
+  }
+  function startBalance03() {
+    clearInterval(interval3);
+    document.getElementById('balance03').textContent = `WINNERS: ${balance3.toFixed(2)}`;
+    interval3 = setInterval(() => {
+      balance3 *= 1.03;
+      document.getElementById('balance03').textContent = `WINNERS: ${balance3.toFixed(2)}`;
+    }, stepTime);
+  }
+  // Chama o saldo nas etapas corretas
+  window.addEventListener("DOMContentLoaded", () => {
+    startBalance01();
+  });
+
+  // ETAPA 2
+  function mostrarEtapa02() {
+    document.getElementById("etapa02").classList.remove("hidden");
+    startBalance02();
+    let width = 0;
+    const progress = document.getElementById("progress");
+    const percent = document.getElementById("percentage");
+    const total = 100;
+    percent.textContent = "0%";
+    progress.style.width = "0%";
+    ["phrase1","phrase2","phrase3"].forEach(id=>{
+      document.getElementById(id).classList.add("hidden");
+      document.getElementById(id).classList.remove("fade-in");
+    });
+    const int = setInterval(() => {
+      if (width >= total) {
+        clearInterval(int);
+        mostrarEtapa03();
+      } else {
+        width++;
+        progress.style.width = width + "%";
+        percent.textContent = width + "%";
+      }
+    }, 75);
+    setTimeout(() => mostrarFrase("phrase1"), 2000);
+    setTimeout(() => mostrarFrase("phrase2"), 4000);
+    setTimeout(() => mostrarFrase("phrase3"), 6000);
+  }
+  function mostrarFrase(id) {
+    const el = document.getElementById(id);
+    el.classList.remove("hidden");
+    el.classList.add("fade-in");
+  }
+
+  // ETAPA 3
+  function mostrarEtapa03() {
+    document.getElementById("etapa02").classList.add("hidden");
+    document.getElementById("etapa03").classList.remove("hidden");
+    startBalance03();
+    carregarVideos();
+  }
+
+  function carregarVideos() {
+    const container = document.getElementById("videos-container");
+    container.innerHTML = "";
+    const videosPerDay = parseInt(localStorage.getItem("videosPerDay")) || 3;
+    
+    // Função para gerar um jogo "inteligente" da Mega
+    function gerarJogoMega() {
+        const pares = [];
+        const impares = [];
+        const baixos = [];
+        const altos = [];
+
+        for (let i = 1; i <= 60; i++) {
+            if (i <= 30) baixos.push(i); else altos.push(i);
+            if (i % 2 === 0) pares.push(i); else impares.push(i);
+        }
+
+        // Escolher 3 pares e 3 ímpares (ou balanceado se não for possível)
+        const jogo = [];
+        const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+
+        const paresEscolhidos = shuffle([...pares]).slice(0, 3);
+        const imparesEscolhidos = shuffle([...impares]).slice(0, 3);
+        jogo.push(...paresEscolhidos, ...imparesEscolhidos);
+
+        // Ajuste para balancear baixos e altos
+        let countBaixos = jogo.filter(n => n <= 30).length;
+        let countAltos = jogo.filter(n => n > 30).length;
+        if (countBaixos < 3) {
+            let extras = shuffle(baixos.filter(n => !jogo.includes(n))).slice(0, 3 - countBaixos);
+            extras.forEach(n => {
+                // substituir algum número alto aleatório
+                let index = jogo.findIndex(x => x > 30);
+                if (index !== -1) jogo[index] = n;
+            });
+        } else if (countAltos < 3) {
+            let extras = shuffle(altos.filter(n => !jogo.includes(n))).slice(0, 3 - countAltos);
+            extras.forEach(n => {
+                let index = jogo.findIndex(x => x <= 30);
+                if (index !== -1) jogo[index] = n;
+            });
+        }
+
+        return shuffle(jogo).slice(0,6).sort((a,b)=>a-b); // ordenar para melhor visualização
+    }
+
+    for (let i = 1; i <= videosPerDay; i++) {
+        const jogo = gerarJogoMega();
+        const videoDiv = document.createElement("div");
+        videoDiv.className = "bg-[#18181b] rounded-xl px-5 py-4 video-box flex flex-col justify-start items-start shadow relative";
+        videoDiv.innerHTML = `
+            <span class="video-label-pink">GAME ${i}</span>
+            <span class="processed-label mt-2">🎯 ${jogo.join(" - ")}</span>
+        `;
+        container.appendChild(videoDiv);
+    }
+}
+
+
+  function voltarParaEtapa01() {
+    document.getElementById("etapa03").classList.add("hidden");
+    document.getElementById("etapa01").classList.remove("hidden");
+    startBalance01();
+  }
+
+  // Função para gerar mais vídeos (voltar ao início totalmente limpo)
+  function generateMoreVideos() {
+    // Limpa os dados salvos
+    localStorage.removeItem("videoTypes");
+    localStorage.removeItem("videosPerDay");
+    localStorage.removeItem("tiktokHandle");
+
+    // Volta para etapa 1
+    document.getElementById("etapa03").classList.add("hidden");
+    document.getElementById("etapa01").classList.remove("hidden");
+    startBalance01();
+
+    // Limpa seleção dos botões
+    document.querySelectorAll(".video-type").forEach(btn => btn.classList.remove("selected"));
+    document.querySelectorAll(".video-count").forEach(btn => btn.classList.remove("selected"));
+
+    // Limpa o input do handle e recolhe o campo
+    const handleInput = document.getElementById("handle");
+    handleInput.value = "";
+    handleInput.classList.add("hidden");
+
+    // Recolhe os campos de tipos e quantidade
+    document.getElementById("types-wrapper").classList.add("hidden");
+    document.getElementById("video-count").classList.add("hidden");
+    document.getElementById("count-wrapper").classList.add("hidden");
+    document.getElementById("count-result").classList.add("hidden");
+
+    // Zera contadores
+    selectedTypes = new Set();
+    selectedCount = null;
+    document.getElementById("video-count").textContent = "Selected: 0";
+    document.getElementById("count-result").textContent = "Selected: 0";
+
+    // Desabilita botão e mostra info
+    validate();
+  }
+</script>
+</body>
+</html>
