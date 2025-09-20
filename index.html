@@ -135,40 +135,40 @@
   <div class="w-full max-w-md sm:max-w-lg flex flex-col items-center justify-center px-2 sm:px-4 py-6 space-y-4 bg-black rounded-xl shadow-lg">
     <div class="caixa-saldo" id="caixaSaldo01">
       <span class="saldo-texto">
-        Congratulations on embracing this new millionaire life.
+        Felicitaciones por abrazar esta nueva vida millonaria.
       </span>
-      <span id="balance01" class="balance-box-small">WINNERS: 123</span>
+      <span id="balance01" class="balance-box-small">GANADORES: 123</span>
     </div>
     <img src="imagens/logo.png" alt="Logo"
          class="w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto block"
          style="margin-top: 0.2px; margin-bottom: 0.2px;" />
-    <h2 class="text-center text-2xl font-semibold mt-2 w-full">🎥 NUMBER PANEL</h2>
+    <h2 class="text-center text-2xl font-semibold mt-2 w-full">🎥 PANEL DE NÚMEROS</h2>
     <div class="bg-[#18181b] rounded-xl p-4 space-y-2 mt-4 w-full">
       <div id="toggle-handle" class="flex justify-between items-center cursor-pointer">
-        <label class="font-bold text-lg">Enter your name</label><span>﹀</span>
+        <label class="font-bold text-lg">Ingrese su nombre</label><span>﹀</span>
       </div>
       <input id="handle" type="text" placeholder="Ex: Michael Johnson" class="w-full bg-[#1f1f1f] p-3 rounded-md focus:outline-none hidden" />
     </div>
     <div class="bg-[#18181b] rounded-xl p-4 space-y-4 mt-4 w-full">
       <div id="toggle-types" class="flex justify-between items-center cursor-pointer">
-        <label class="font-bold text-lg">Select the game day</label><span>﹀</span>
+        <label class="font-bold text-lg">Seleccione el día del juego</label><span>﹀</span>
       </div>
       <div id="types-wrapper" class="rounded-lg p-3 space-y-3 hidden">
         <div id="types-options" class="grid grid-cols-2 gap-2">
-          <button class="video-type option-btn bg-[#1a1a1a]">Monday</button>
-          <button class="video-type option-btn bg-[#1a1a1a]">Tuesday</button>
-          <button class="video-type option-btn bg-[#1a1a1a]">Wednesday</button>
-          <button class="video-type option-btn bg-[#1a1a1a]">Thursday</button>
-          <button class="video-type option-btn comment-replies bg-[#1a1a1a]" style="grid-column: span 1 / span 1;">Friday</button>
-          <button class="video-type option-btn bg-[#1a1a1a]">Saturday</button>
-          <button class="video-type option-btn bg-[#1a1a1a]">Sunday</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Segunda</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Martes</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Cuarto</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Quinta</button>
+          <button class="video-type option-btn comment-replies bg-[#1a1a1a]" style="grid-column: span 1 / span 1;">Viernes</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Sábado</button>
+          <button class="video-type option-btn bg-[#1a1a1a]">Domingo</button>
         </div>
         <p id="video-count" class="text-gray-400 text-sm hidden">Selected: 0</p>
       </div>
     </div>
     <div class="bg-[#18181b] rounded-xl p-4 space-y-4 mt-4 w-full">
       <div id="toggle-count" class="flex justify-between items-center cursor-pointer">
-        <label class="font-bold text-lg">How many games do you want to play</label><span>﹀</span>
+        <label class="font-bold text-lg">A cuántos juegos quieres jugar</label><span>﹀</span>
       </div>
       <div id="count-wrapper" class="rounded-lg p-3 space-y-3 hidden">
         <div id="count-options" class="grid grid-cols-5 gap-2">
@@ -188,7 +188,7 @@
     </div>
     <button id="continue" disabled class="w-full py-3 bg-gray-800 text-gray-400 font-bold rounded-xl mt-6">CONTINUE</button>
     <p id="info" class="text-center text-sm text-gray-400 mt-2 mb-2">
-      Enter your name, select the days of the week, and choose how many games you want to play.
+      Ingrese su nombre, seleccione los días de la semana y elija cuántos juegos desea jugar.
     </p>
   </div>
 </div>
@@ -198,23 +198,23 @@
   <div class="w-full max-w-md sm:max-w-lg px-2 py-8 flex flex-col items-center justify-center text-center bg-black rounded-xl shadow-lg">
     <div class="caixa-saldo" id="caixaSaldo02">
       <span class="saldo-texto text-left">
-        We have identified your choices, now let's generate your numbers.
+        Hemos identificado sus opciones, ahora generemos sus números.
       </span>
-      <span id="balance02" class="balance-box-small">WINNERS: 154</span>
+      <span id="balance02" class="balance-box-small">GANADORES: 154</span>
     </div>
-    <h2 class="text-2xl font-semibold mb-5">🌀 Generating games...</h2>
+    <h2 class="text-2xl font-semibold mb-5">🌀 Generando juegos...</h2>
     <video src="imagens/vdeottkpulse.mp4" autoplay muted loop playsinline class="mx-auto mb-4 w-64 sm:w-96 rounded-lg"></video>
-    <p id="phrase-wait" class="mb-3">⏳ Please wait, generating games...</p>
+    <p id="phrase-wait" class="mb-3">⏳ Por favor espere, generando juegos...</p>
     <div class="progress-bar mb-2" style="width:100%;height:8px;background:#1a1a1a;border-radius:10px;overflow:hidden;">
       <div id="progress" class="progress" style="width:0%;height:100%;background:linear-gradient(90deg,#ff5e62,#00bfff);border-radius:10px;transition:width 0.5s ease-in-out;"></div>
     </div>
     <div class="w-full flex justify-between mt-2 text-xs sm:text-base mb-2">
-      <span id="processando">Processing...</span>
+      <span id="processando">Procesando...</span>
       <span id="percentage">0%</span>
     </div>
-    <p id="phrase1" class="sub-text hidden text-xs mb-2">📊 Analyzing your choices...</p>
-    <p id="phrase2" class="sub-text hidden text-xs mb-2">🤖 Generating numbers...</p>
-    <p id="phrase3" class="sub-text hidden text-xs mb-2">✨ Finalizing combinations...</p>
+    <p id="phrase1" class="sub-text hidden text-xs mb-2">📊 Analizando sus elecciones...</p>
+    <p id="phrase2" class="sub-text hidden text-xs mb-2">🤖 Generando numeros...</p>
+    <p id="phrase3" class="sub-text hidden text-xs mb-2">✨ Finalizando combinaciones...</p>
   </div>
 </div>
 
@@ -223,13 +223,13 @@
  <main class="w-full max-w-2xl mx-auto flex flex-col items-center">
     <div class="caixa-saldo" id="caixaSaldo03">
       <span class="saldo-texto">
-        Your games have been successfully generated, get ready.
+        Tus juegos se han generado con éxito, prepárate.
       </span>
-      <span id="balance03" class="balance-box-small">WINNERS: 203</span>
+      <span id="balance03" class="balance-box-small">GANADORES: 203</span>
     </div>
-    <h1 class="text-3xl sm:text-4xl font-bold mb-0 text-center">GAMES GENERATED</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-0 text-center">JUEGOS GENERADOS</h1>
     <p id="subtitle" class="text-gray-300 text-base sm:text-lg mb-0 text-center mt-3">
-      Your combinations have been successfully generated <span id="selectedTypeText" class="font-semibold"> 💸</span>
+      Tus combinaciones se han generado con sucesso <span id="selectedTypeText" class="font-semibold"> 💸</span>
     </p>
     <div id="videos-container" class="w-full flex flex-col gap-4 mb-8 mt-6"></div>
     <div class="btn-bar mt-4">
@@ -238,15 +238,15 @@
         <svg class="w-4 h-4 mr-1 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A9 9 0 106.62 6.623"/>
         </svg>
-        Generate more videos
+        Genera más juegos
       </button>
       <button class="bg-pink-custom hover:bg-pink-600 text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
         onclick="window.open('https://www.appgelatina.online/quizrobot','_blank')">
-        Accelerate winnings
+        Acelere las ganancias
       </button>
       <button class="bg-[#222] hover:bg-[#333] text-white font-semibold py-3 px-2 rounded-md transition duration-200 only-one-line"
         onclick="voltarParaEtapa01()">
-        Back to configuration
+        Volver a configuración
       </button>
     </div>
   </main>
@@ -330,26 +330,26 @@
 
   function startBalance01() {
     clearInterval(interval1);
-    document.getElementById('balance01').textContent = `WINNERS: ${balance1.toFixed(2)}`;
+    document.getElementById('balance01').textContent = `GANANCIAS: ${balance1.toFixed(2)}`;
     interval1 = setInterval(() => {
       balance1 *= 1.03;
-      document.getElementById('balance01').textContent = `WINNERS: ${balance1.toFixed(2)}`;
+      document.getElementById('balance01').textContent = `GANANCIAS: ${balance1.toFixed(2)}`;
     }, stepTime);
   }
   function startBalance02() {
     clearInterval(interval2);
-    document.getElementById('balance02').textContent = `WINNERS: ${balance2.toFixed(2)}`;
+    document.getElementById('balance02').textContent = `GANANCIAS: ${balance2.toFixed(2)}`;
     interval2 = setInterval(() => {
       balance2 *= 1.03;
-      document.getElementById('balance02').textContent = `WINNERS: ${balance2.toFixed(2)}`;
+      document.getElementById('balance02').textContent = `GANANCIAS: ${balance2.toFixed(2)}`;
     }, stepTime);
   }
   function startBalance03() {
     clearInterval(interval3);
-    document.getElementById('balance03').textContent = `WINNERS: ${balance3.toFixed(2)}`;
+    document.getElementById('balance03').textContent = `GANANCIAS: ${balance3.toFixed(2)}`;
     interval3 = setInterval(() => {
       balance3 *= 1.03;
-      document.getElementById('balance03').textContent = `WINNERS: ${balance3.toFixed(2)}`;
+      document.getElementById('balance03').textContent = `GANANCIAS: ${balance3.toFixed(2)}`;
     }, stepTime);
   }
   // Chama o saldo nas etapas corretas
@@ -450,7 +450,7 @@
         const videoDiv = document.createElement("div");
         videoDiv.className = "bg-[#18181b] rounded-xl px-5 py-4 video-box flex flex-col justify-start items-start shadow relative";
         videoDiv.innerHTML = `
-            <span class="video-label-pink">GAME ${i}</span>
+            <span class="video-label-pink">JUEGO ${i}</span>
             <span class="processed-label mt-2">🎯 ${jogo.join(" - ")}</span>
         `;
         container.appendChild(videoDiv);
